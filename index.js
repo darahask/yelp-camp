@@ -12,7 +12,7 @@ var commentRoutes = require('./routes/comments'),
     campgroundRoutes = require('./routes/campgrounds'),
     indexRoutes = require('./routes/index');
 
-mongoose.connect("mongodb://localhost/yelpcamp3",{useNewUrlParser:true, useUnifiedTopology:true});
+    mongoose.connect("mongodb+srv://darahask:1303823d@cluster0.yt5xx.mongodb.net/yelpcamp?retryWrites=true&w=majority",{useNewUrlParser:true, useUnifiedTopology:true});
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine","ejs");
 app.use(express.static('public'));  
@@ -39,10 +39,8 @@ app.use(commentRoutes);
 app.use(campgroundRoutes);
 app.use(indexRoutes);
 
-app.listen(3000);
+// app.listen(3000);
 
-// app.listen(process.env.PORT,process.env.IP,()=>{
-//     console.log('Server Started');
-// });
-
-//mongoose.connect("mongodb+srv://darahask:1303823d@cluster0.yt5xx.mongodb.net/yelpcamp?retryWrites=true&w=majority",{useNewUrlParser:true, useUnifiedTopology:true});
+app.listen(process.env.PORT,process.env.IP,()=>{
+    console.log('Server Started');
+});
