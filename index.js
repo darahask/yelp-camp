@@ -40,6 +40,6 @@ app.use(campgroundRoutes);
 app.use(indexRoutes);
 
 
-app.listen(8080,'0.0.0.0',()=>{
+app.listen(process.env.PORT,process.env.IP,()=>{
     console.log('Server Started');
 });
