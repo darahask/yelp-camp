@@ -39,8 +39,7 @@ app.use(commentRoutes);
 app.use(campgroundRoutes);
 app.use(indexRoutes);
 
-// app.listen(3000);
 
-app.listen(process.env.PORT,process.env.IP,()=>{
+app.listen(8080,'0.0.0.0',()=>{
     console.log('Server Started');
 });

@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router({mergeParams:true});
 var Campground = require('../models/camps');
-var checks = require('../middleware/index')
+var checks = require('../middleware/index');
+const { isLoggedIn } = require('../middleware/index');
 
 router.get("/campgrounds",(req,res)=>{
     Campground.find({},(err,data)=>{
@@ -13,7 +14,7 @@ router.get("/campgrounds",(req,res)=>{
     });
 });
 
-router.post("/campgrounds",(req,res)=>{
+router.post("/campgrounds",isLoggedIn,(req,res)=>{
     Campground.create(req.body.camp,(err,camp)=>{
         if(err){
             console.log(err);
