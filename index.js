@@ -4,15 +4,15 @@ var flash = require('connect-flash');
 var User = require('./models/user');
 var express = require("express");
 var app = express();
-var passport = require('passport');
 var mongoose = require('mongoose');
+var passport = require('passport');
 var LocalStrategy = require('passport-local');
 
 var commentRoutes = require('./routes/comments'),
     campgroundRoutes = require('./routes/campgrounds'),
     indexRoutes = require('./routes/index');
 
-    mongoose.connect("mongodb+srv://darahask:1303823d@cluster0.yt5xx.mongodb.net/yelpcamp?retryWrites=true&w=majority",{useNewUrlParser:true, useUnifiedTopology:true});
+    mongoose.connect("<MONGOURL>",{useNewUrlParser:true, useUnifiedTopology:true});
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine","ejs");
 app.use(express.static('public'));  
